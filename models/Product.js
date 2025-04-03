@@ -51,7 +51,7 @@ presentationSize: {
     message: 'Please select a valid presentation size'
   },
   default: '100gm'
-}
+},
   images: [{
     type: String,
     required: [true, 'At least one image is required'],
