@@ -13,21 +13,45 @@ const productSchema = new mongoose.Schema({
     enum: ['wheat', 'rice', 'sugarcane', 'bajra', 'vegetable', 'Mango'],
     default: 'wheat'
   },
-  presentation: {
-    type: String,
-    required: [true, 'Presentation type is required'],
-    enum: ['Powder Form', 'Liquid Form'],
-    default: 'Powder Form'
+  // presentation: {
+  //   type: String,
+  //   required: [true, 'Presentation type is required'],
+  //   enum: ['Powder Form', 'Liquid Form'],
+  //   default: 'Powder Form'
+  // },
+  // presentationSize: {
+  //   type: String,
+  //   required: [true, 'Presentation size is required'],
+  //   enum: {
+  //     values: ['100gm', '250gm', '500gm', '1kg', '3kg', '5kg', '25kg', '50kg', '10ml', '80ml', '1l'],
+  //     message: 'Please select a valid presentation size'
+  //   },
+  //   default: '100gm'
+  // },
+  // Update the presentation enum
+presentation: {
+  type: String,
+  required: [true, 'Presentation type is required'],
+  enum: ['Powder Form', 'Liquid Form', 'Seed Form', 'Granules Form', 'Jaivik Form'],
+  default: 'Powder Form'
+},
+
+// Update the presentationSize enum
+presentationSize: {
+  type: String,
+  required: [true, 'Presentation size is required'],
+  enum: {
+    values: [
+      '100gm', '250gm', '500gm', '1kg', '3kg', '5kg', '25kg', '50kg', // Powder Form
+      '10ml', '80ml', '1l', // Liquid Form
+      '1kg', '5kg', '25kg', // Seed Form
+      '45kg', // Granules Form
+      '40kg'  // Jaivik Form
+    ],
+    message: 'Please select a valid presentation size'
   },
-  presentationSize: {
-    type: String,
-    required: [true, 'Presentation size is required'],
-    enum: {
-      values: ['100gm', '250gm', '500gm', '1kg', '3kg', '5kg', '25kg', '50kg', '10ml', '80ml', '1l'],
-      message: 'Please select a valid presentation size'
-    },
-    default: '100gm'
-  },
+  default: '100gm'
+}
   images: [{
     type: String,
     required: [true, 'At least one image is required'],
