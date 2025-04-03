@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://yourfrontenddomain.com'],
+    origin: ['http://localhost:3000', 'https://shakumbharifertilizers.netlify.app'],
     credentials: true
 }));
 
